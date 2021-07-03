@@ -1,0 +1,350 @@
+
+$bg_color:#091c30;
+$primary-color:white;
+$logo_margin:20px;
+$secondary_font:'Raleway', sans-serif;
+$main_font: 'Bebas Neue', "Roboto";
+
+:root {
+    /* phone + tablet */
+    @media (max-width:768px) {
+        --primary-fontsize:12vw;
+        --secondary-fontsize:8vw;
+        --tertiary-fontsize:6vw;
+        --quart-fontsize:5vw;
+        --noteiconsize:14vw;
+        --ticketwidth:80vw;
+        --notewidth:90vw;
+        --noteheight:80vh;
+        --primarybtn:25vh;
+        --secondarybtn:7vw;
+    }
+    /* laptop + tabletpro */
+    @media screen and (min-width:768px) {
+        --primary-fontsize:10vw;
+        --secondary-fontsize:6vw;
+        --tertiary-fontsize:4vw;
+        --quart-fontsize:3vw;
+        --noteiconsize:12vw;
+        --ticketwidth:56vw;
+        --notewidth:65vw;
+        --noteheight:85vh;
+        --primarybtn:35vw;
+        --secondarybtn:7vw;
+    }
+    @media screen and (min-width:1366px) {
+        --notewidth:40vw;
+        --noteheight:90vh;
+        --primarybtn:20vw;
+        --ticketwidth:35vw;
+    }
+}
+// visibility tickets>notepad>homenav
+div.home {
+    z-index: 2;
+}
+.notepad {
+    position: relative;
+    border: transparent;
+    text-align: center;
+    margin: 10vh 0 0 5vw;
+    .notepad_icon {
+        position: relative;
+        margin-right: auto;
+        width: var(--noteiconsize);
+        color: #eeeeee;
+        border: none;
+        background-color: transparent;
+        & > .notesnotification {
+            position: absolute;
+            top:35%;
+            left:35%;
+        }
+    }
+    .mynotes {
+        transform: translateX(-100vw);
+        transition: transform 0.35s cubic-bezier(0.39, 0.575, 0.565, 1);
+        border-radius: 33px;
+        background-color: #eeeeeeb7;
+        color: $bg_color;
+        position: absolute;
+        left:0;
+        top:10%;
+        width: var(--notewidth);
+        h2 {
+            margin: 10px auto;
+        }
+        button.close_note {
+            color: #091c30;
+            border: transparent;
+            display: block;
+            background-color: transparent;
+            position: absolute;
+            top: 3%;
+            right: 5%;
+            background-color: transparent;
+            font-size: var(--secondarybtn);
+        }
+        .edit_button,.deleteNote_button {
+            border: none;
+            width: var(--secondarybtn);
+            background-color: transparent;
+        }
+        .deleteNote_button {
+            right: 10%;
+        }
+        nav {
+            display: flex;
+            flex-flow: row nowrap;
+            width: 100%;
+            min-height: 5vh;
+            overflow-x: auto;
+            // justify-content: space-evenly;
+            button {
+                border: transparent;
+                margin-right: 3px;
+                min-width: 45%;
+                color: #eeeeee;
+                border-radius: 8px 8px 0 0;
+                background-color: $bg_color;
+            }
+            button:first-of-type {
+                min-width: 30%;
+            }
+            button.active {
+                background-color: #1c4c80;
+            }
+        }
+        .tab_content {
+            visibility: hidden;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            border-radius: 0 0 33px 33px;
+            background: #1c4c80;
+            color: #eeeeee;
+            height: 0;
+            transition: height 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+            &.active {
+                visibility: visible;
+                height: var(--noteheight);
+            }
+            .topNote {
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .note_title {
+                width: 60%;
+            }
+            .note_title,input[type=text] {
+                text-align: start;
+                font-family: $main_font;
+                font-size: var(--secondary-fontsize);
+                margin: 40px 0 30px 0;
+                letter-spacing: 3px;
+            }
+            .note_content,textarea {
+                width: 90%;
+                text-align: start;
+                font-family: $secondary_font;
+                font-size: var(--tertiary-fontsize);
+                height: 65%;
+                padding: 5px;
+                letter-spacing: 1px;
+                overflow-y: scroll;
+            }
+        }
+        input[type=text] {
+            width: 90%;
+            border-bottom:  2px solid #eeeeee;
+        }
+        textarea,input[type=text] {
+            border: none;
+            background-color: transparent;
+            color: #eeeeee;
+            padding: 10px 5px;
+        }
+        button.submit {
+            font-family: $main_font;
+            color: #eeeeee;
+            letter-spacing: 3px;
+            font-size: var(--secondary-fontsize);
+            background-color: transparent;
+            border: 2px solid #e9ae2d;
+            border-radius: 20px;
+            width: 80%;
+            padding: 10px 0;
+            margin: 10px auto;
+        }
+        &.slideIn {
+            transform: translateX(0);
+        }
+    }
+}
+.container {
+    color: $primary-color;
+    background: url("images/aron-visuals-LSFuPFE9vKE-unsplash.jpg") no-repeat;
+    background-size: contain;
+    background-position: top;
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 30vh;
+        align-items: flex-start;
+        padding: 3vh 5vw;
+        .logo {
+            width: 153px;
+            height: 51px;
+        }
+        .level, .credits {
+            font-size: var(--secondary-fontsize);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(0deg, rgba(239, 72, 73, 1) 0%, rgba(247, 147, 30, 1) 69.5%, rgba(247, 147, 30, 1) 100%);
+            margin: 0 3vw;
+        }
+        .credits > img {
+            width: var(--tertiary-fontsize);
+            margin-right: 1vh;
+        }
+    }
+}
+.container::before {
+    display: none;
+}
+.profile {
+    box-sizing: border-box;
+    position: relative;
+    background : linear-gradient(320.07deg, rgba(86, 240, 237, 1) 5%,  rgba(34, 162, 181, 1) 30.89%,  rgba(27, 57, 79, 1) 65%);;
+    border-radius: 30px 30px 0 0;
+    width: 100vw;
+    height: fit-content;
+    text-align: center;
+    color: $primary-color;
+    letter-spacing: 3px;
+    .avatar {
+        position: absolute;
+        width: 100%;
+        top: -9%;
+        left: 0;
+        & > img.profile_icon {
+            width: var(--primarybtn);
+            height: var(--primarybtn);
+            object-position: top;
+            border-radius: 50%;
+            border: 2px solid $primary-color;
+            object-fit: cover;
+        }
+    }
+    .name {
+        letter-spacing: 5px;
+        margin: 10px auto;
+    }
+    &>.location {
+        display: flex;
+        margin:10px auto;
+        width: fit-content;
+        font-size: var(--secondary-fontsize);
+        align-items: center;
+        img.location_icon {
+            width: var(--secondary-fontsize);
+            height: var(--secondary-fontsize);
+            margin-right: 10px;
+        }
+    }
+    .membership_serial_code {
+        color: #e9ae2d;
+    }
+}
+.heading {
+    margin: 5vh auto 3vh auto;
+}
+// .tickets_cards,.recentview_cards {
+//     margin: 0 20px 20px 10px;
+//     border-radius: 30px;
+//     width: var(--nonHeader_width);
+//     transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+//     text-align: start;
+//     img {
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//         border-radius: 30px;
+//     }
+// }
+div.ticket_display {
+    width: var(--ticketwidth);
+    height: fit-content;
+    position: absolute;
+    top:10%;
+    right: 10%;
+    transform: translateX(100vw);
+    transition: transform 0.35s cubic-bezier(0.39, 0.575, 0.565, 1);
+    z-index: 4;
+    mask-image: url("images/ticket_mask.svg");
+    background-size: cover;
+    background-position: center;
+    .ticket {
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #091c309e;
+        padding: 45px 10px 0 10px;
+        height: calc(2 * var(--ticketwidth));
+        max-height: calc(2 * var(--ticketwidth));
+        .cut_line {
+            width: 80%;
+            border: none;
+            border-top: 6px dotted #69798A;
+        }
+        .title {
+            color: #56F0EE;
+            margin: 10px 0;
+            .bottom_aligner {
+                display: inline-block;
+                height: 100%;
+                vertical-align: bottom;
+                width: 0px;
+            }
+        }
+        .location_sub,.subtitle_sub {
+            color: #69798A;
+        }
+        span {
+            width: 70%;
+            margin: 20px auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            .subtitle {
+                margin: 0 0 5px 0;
+            }
+            .subtitle_sub {
+                margin: 0;
+            }
+        }
+        img {
+            width: 45%;
+            margin: 0 auto;
+        }
+        button.close_ticket {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            font-size: var(--secondarybtn);
+            background-color: transparent;
+            border: none;
+            color: white;
+        }
+    }
+    &.view_ticket {
+        transform: translateX(0);
+    }
+}

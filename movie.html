@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/Popizz_sliced.svg" type="image/svg">
+    <title>Movie</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./base.js"></script>
+    <style>
+        @import 'base.css';
+        :root {
+           --castwidth:40% 
+        }
+        iframe {
+            width: 100vw;
+            height: 40vh;
+            margin-bottom: 30px;
+            
+        }
+        .container {
+            height: auto;
+            text-align: start;
+            background : linear-gradient(0deg, rgba(21, 57, 97, 1) 0%, rgba(21, 57, 97, 1) 44.1%, rgba(10, 22, 39, 1) 100%);
+        }
+        div.movie_details {
+            width: 85vw;
+            margin: 15px auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .title {
+            font-size: 5vh;
+            margin: 5vh 0;
+            position: relative;
+        }
+        .subheading {
+            font-size: 4vh;
+            width: fit-content;
+            margin: 10px 0;
+        }
+        .back_arrow {
+            width: 32px;
+            height: 32px;
+            border: transparent;
+            background: transparent;
+        }
+        .synopsis {
+            padding: 10px 0;
+            font-family: Raleway;
+            letter-spacing: 2px;
+            font-size: 20px;
+            color: #ffffff;
+        }
+        .cast {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+        }
+        row {
+            width:var(--castwidth);
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            padding: 0 20px;
+            align-items: center;
+            margin: 0 0 20px 0;
+        }
+        .artist {
+            color: #e9ae2d;
+            display: flex;
+            flex-direction: column;
+            font-size: 30px;
+            text-indent: 0;
+        }
+        .artist > p {
+            margin: 0;
+        }
+        lower {
+            font-family: Raleway;
+            color: white;
+            font-size: 17px;
+            letter-spacing: 1px;
+        }
+        .character {
+            color: white;
+            font-size: 27px;
+        }
+        .artist_icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+        }
+        @media (max-width:768px) {
+            iframe {
+                height: 40vh;
+            }
+            :root {
+               --castwidth:100%; 
+            }
+        }
+    </style>
+    <script src="./movie.js"></script>
+</head>
+<body>
+    <div class="container">
+        <iframe src="#" title="movie trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="movie_details">
+            <a class="back_arrow" href="./index.html"><img src="./images/back_arrow.svg" alt="back_arrow"></a>
+            <h1 class="title">
+                movie title
+            </h1>
+            <p class="subheading" id="releasedate">date</p>
+            <p class="subheading" id="duration">time</p>
+            <p class="popularity"></p>
+            <p class="synopsis">synopsis</p>
+            <h1 class="title">cast</h1>
+            <div class="cast">
+            </div>
+        </div>
+        <footer>popizz®</footer>
+    </div>
+</body>
+</html>

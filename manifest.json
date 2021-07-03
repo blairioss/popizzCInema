@@ -1,0 +1,26 @@
+{
+    "name": "Popizz Cinemas",
+    "short_name": "Popizz",
+    "theme_color": "#e9ae2d",
+    "background_color": "#091c30",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/index.html",
+    "icons":[{
+        "src":"/images/icon_144.png",
+        "type":"image/png",
+        "sizes":"144x144",
+        "purpose":"any maskable"
+    },{
+        "src":"/images/icon_192.png",
+        "type":"image/png",
+        "sizes":"192x192",
+        "purpose":"any maskable"
+    },{
+        "src":"/images/icon_512.png",
+        "type":"image/png",
+        "sizes":"512x512",
+        "purpose":"any maskable"
+    }]
+}

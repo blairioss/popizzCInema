@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemas</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/Popizz_sliced.svg" type="image/svg">
+    <link rel="stylesheet" href="./seatings.css">
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./cinemas.js"></script>
+    <script src="./fetchData.js"></script>
+    <script src="./base.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="cinemas">
+            <a href="./index.html"><img src="images/Popizz_sliced.svg" alt="" class="logo"></a>
+            <!-- profile button icon -->
+            <div class="profile">
+                <a href="./profile.html"><img src="images/damian-barczak-j-jXnBFahhU-unsplash.jpg" alt="" class="profile_icon"></a>
+            </div>
+        </header>
+        <content>
+            <!-- home button navigation -->
+            <div class="home">
+                <div class="homemenu">
+                    <a class="icon" href="./index.html"><img src="images/home_icon.svg" alt="home_icon"><h4>Home</h4></a>
+                    <a class="icon" href="./cinemas.html"><img src="images/cinema_icon.svg" alt="cinema_icon"><h4>Movies</h4></button>
+                    <a class="icon" href="./locateus.html"><img src="images/locateus_icon.svg" alt="locateus_icon"><h4>Locate Us</h4></button>
+                    <a class="icon" href="./profile.html"><img src="images/profile_icon.svg" alt="profile_icon"><h4>Profile</h4></button>
+                    <a class="icon"></a>
+                </div>
+                <button class="toggle_menu">
+                    <img src="images/menucross_gradient.svg" alt="menucross_gradient">
+                </button>
+            </div>
+            <!-- search bar -->
+            <input type="text" class="search_bar" placeholder="venom">
+            <!-- time & date scroll -->
+            <div class="scroll_container">
+                <div class="datetime-display" id="datebar"></div>
+                <div class="date_bar" ></div>
+            </div>
+            <div class="scroll_container">
+                <div class="datetime-display">
+                    <div class="card">
+                        <div class="movietime alive">1230</div>
+                        <div class="movietime">1400</div>
+                        <div class="movietime">1640</div>
+                        <div class="movietime">2050</div>
+                    </div>
+                </div>
+                <div class="time_bar"></div>
+            </div>
+            <!-- genre tags -->
+            <!-- <div class="tag_display">
+                <button class="tag"><img src="images/cross.svg" alt="">action</button>
+                <button class="tag"><img src="images/cross.svg" alt="">triller</button>
+            </div> -->
+            <!-- card display of movies -->
+            <div class="onscreen_display cinemas"></div>
+        </content>
+        <footer><h4>popizz®</h4></footer>
+    </div>
+</body>
+</html>

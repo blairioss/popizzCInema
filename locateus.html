@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locate Us</title>
+    <link rel="icon" href="images/Popizz_sliced.svg" type="image/svg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="./googlemap.css">
+    <script src="./base.js"></script>
+    <script src="./googleMaps.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="./index.html"><img src="images/Popizz_sliced.svg" alt="" class="logo"></a>
+            <!-- profile button icon -->
+            <div class="profile">
+                <a href="./profile.html"><img src="images/damian-barczak-j-jXnBFahhU-unsplash.jpg" alt="" class="profile_icon"></a>
+            </div>
+        </header>
+        <h2>where are we?</h2>
+        <div class="contentContainer">
+            <content>
+                <!-- google map -->
+                <div id="js_googlemap">
+                </div>
+                <h3>destination</h3>
+                <select name="destination" id="destination">
+                    <option value="1.434078,103.780709" name="destination">Popizz Woodlands</option>
+                    <option value="1.3397496619782405,103.7054636956996" name="destination">Popizz Jurong Point</option>
+                    <option value="1.448064,103.819989" name="destination">Popizz Sembawang</option>
+                    <option value="1.3915619950791178,103.8960201313853" name="destination">Popizz Punggol</option>
+                    <option value="1.3782040376877163,103.9417973560014" name="destination">Popizz Pasir Ris</option>
+                    <option value="1.3051357518694195,103.90421970830876" name="destination">Popizz Katong</option>
+                </select>
+                <h3>start</h3>
+                <select name="origin" id="origin">
+                    <option value="0000" name="origin" selected>-</option>
+                </select>
+                <button class="get_currentLocation">find current location</button>
+                <button class="getDirection">Get Direction</button>
+            </content>
+            <content class="rightpanel" id="rightpanel">
+                <div class="gm-err-container">
+                    <div class="gm-err-content">
+                        <h2 class="gm-err-message" style="text-align: center;">Directions</h2>
+                    </div>
+            </content>
+        </div>
+    </div><footer><h4>popizz®</h4></footer>
+</body>
+</html>

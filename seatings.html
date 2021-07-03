@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seatings</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/Popizz_sliced.svg" type="image/svg">
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="./seatings.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./base.js"></script>
+    <script src="./seatings.js"></script>
+    <script src="./cinemas.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="cinemas">
+            <a href="./index.html"><img src="images/Popizz_sliced.svg" alt="" class="logo"></a>
+        </header>
+        <div class="scroll_container">
+            <div class="datetime-display" id="datebar">
+            </div>
+            <div class="date_bar"></div>
+        </div>
+        <div class="scroll_container">
+            <div class="datetime-display">
+                <div class="card">
+                    <div class="movietime alive">1230</div>
+                    <div class="movietime">1400</div>
+                    <div class="movietime">1640</div>
+                    <div class="movietime">2050</div>
+                </div>
+            </div>
+            <div class="time_bar"></div>
+        </div>
+        
+        <content>
+        <div class="screen_container">
+            <h3 class="screen_line">screen</h3>
+            <div class="seat_selection">
+                <div class="seat" seatno="1A" onclick="changeSeat(this)"></div>
+                <div class="seat" seatno="1B" onclick="changeSeat(this)"></div>      
+                <div class="seat" seatno="2A" onclick="changeSeat(this)"></div><div class="seat" seatno="2B" onclick="changeSeat(this)"></div>            
+                <div class="seat" seatno="3A" onclick="changeSeat(this)"></div><div class="seat" seatno="3B" onclick="changeSeat(this)"></div>
+                <div class="seat" seatno="4A" onclick="changeSeat(this)"></div><div class="seat" seatno="4B" onclick="changeSeat(this)"></div>          
+                <div class="seat disabled_seat" seatno="5A" disabled></div>              
+                <div class="seat disabled_seat" seatno="5B" disabled></div>  
+                <div class="seat" seatno="6A" onclick="changeSeat(this)"></div><div class="seat" seatno="6B" onclick="changeSeat(this)"></div>            
+            </div>
+            <div class="legend">
+                <span><div class="seat selected_seat"></div><h4>selected</h4></span>
+                <span><div class="seat disabled_seat" disabled></div><h4>unavailable</h4></span>
+                <span><div class="seat" disabled></div><h4>available</h4></span>
+            </div>
+        </div>
+        <div class="price_container">
+            <span class="total_cost">
+                <h3>total(s$)</h3>
+                <h3 class="total_price">-</h3>
+                <p class="disclaimer">prices inclusive of GST</p>
+            </span>
+            <table>
+                <tr>
+                    <td>ticket type</td>
+                    <td colspan="3">qty</td>
+                    <td>price</td>
+                </tr>
+                <tr><td>basic</td>
+                    <td><button class="quantity_minus"><img src="images/minus_icon.svg" alt=""></button></td>
+                    <td class="quantity">-</td>
+                    <td><button class="quantity_plus"><img src="images/plus_icon.svg" alt=""></button></td>
+                    <td class="ticket_price">7.00</td>
+                </tr>
+                <tr><td colspan="5" style="color: transparent;">-</td></tr>
+                <tr><td style="color: #e9ae2d;">Movie Name:</td><td id="moviename" colspan="4">-</td></tr>
+                <tr><td style="color: #e9ae2d;">Selected Seat</td><td colspan="4" id="seatselected">-</td></tr>
+                <tr><td style="color: #e9ae2d;">Location</td>
+                    <td colspan="4">
+                        <select name="movielocation" id="movielocation">
+                            <option name="movielocation" value="Jurong Point" selected>Jurong Point</option>
+                            <option name="movielocation" value="Woodlands">Woodlands</option>
+                            <option name="movielocation" value="Punggol">Punggol</option>
+                            <option name="movielocation" value="Sembawang">Sembawang</option>
+                            <option name="movielocation" value="Katong">Katong</option>
+                            <option name="movielocation" value="Pasir Ris">Pasir Ris</option>
+                        </select></td></tr>
+                <tr><td colspan="5" style="color: transparent;">-</td></tr>
+                <tr><td colspan="5"><button class="checkout"><a href="./submitted.html">checkout</a></button></td></tr>
+            </table>
+        </div></content>
+    </div>
+</body>
+</html>

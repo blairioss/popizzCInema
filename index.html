@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popizz Cinemas</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e9ae2d">
+    <link rel="apple-touch-icon" href="images/icon_144.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="icon" href="images/Popizz_sliced.svg" type="image/svg">
+    <script src="./base.js"></script>
+    <script src="./fetchData.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="./index.html"><img src="images/Popizz_sliced.svg" alt="" class="logo"></a>
+            <!-- profile button icon -->
+            <div class="profile">
+                <a href="./profile.html"><img src="images/damian-barczak-j-jXnBFahhU-unsplash.jpg" alt="" class="profile_icon"></a>
+            </div>
+        </header>
+        <!-- home button navigation -->
+        <div class="home">
+            <div class="homemenu">
+                <a class="icon" href="./index.html"><img src="images/home_icon.svg" alt="home_icon"><h4>Home</h4></a>
+                <a class="icon" href="./cinemas.html"><img src="images/cinema_icon.svg" alt="cinema_icon"><h4>Movies</h4></button>
+                <a class="icon" href="./locateus.html"><img src="images/locateus_icon.svg" alt="locateus_icon"><h4>Locate Us</h4></button>
+                <a class="icon" href="./profile.html"><img src="images/profile_icon.svg" alt="profile_icon"><h4>Profile</h4></button>
+                <a class="icon"></a>
+            </div>
+            <button class="toggle_menu">
+                <img src="images/menucross_gradient.svg" alt="menucross_gradient">
+            </button>
+        </div>
+        <!-- header card carousell for popular movies -->
+        <div class="top_container">
+            <div class="card-display" id="headercard"></div>
+            <div class="carousel_indicator">
+                <!-- <input type="range" min="1" max="5" value="0" disabled> -->
+                <span class="carousel_outline">
+                    <img src="images/Ellipse_grey.svg" alt="">
+                    <img src="images/Ellipse_grey.svg" alt="">
+                    <img src="images/Ellipse_grey.svg" alt="">
+                    <img src="images/Ellipse_grey.svg" alt="">
+                    <img src="images/Ellipse_grey.svg" alt="">
+                </span>
+            </div>
+        </div>
+        <div class="bottom_container">
+            <h2 class="pageheading">On Screens</h2>
+            <div class="onscreen_display"></div>
+            <h2 class="pageheading">Coming Soon</h2>
+            <div class="comingsoon_display"></div>
+        </div>
+      
+        <footer><h4>popizz®</h4></footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/Popizz_sliced.svg" type="image/svg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./profile.css">
+    <script src="./base.js"></script>
+    <script src="./profile_Notepad.js"></script>
+    <script src="./profile_Movie.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="cinemas">
+            <a href="./index.html"><img src="images/Popizz_sliced.svg" alt="" class="logo"></a>
+            <div>
+                <span class="level">Gold</span>
+                <span class="credits"><img src="images/credit_icon.svg">360</span>
+            </div>
+        </header>
+        <div class="profile">
+            <div class="avatar">
+                <img src="images/damian-barczak-j-jXnBFahhU-unsplash.jpg" alt="profile icon" class="profile_icon">
+            </div>
+            <div class="notepad">
+                <div class="notepad_icon">
+                    <img src="images/notepad_icon.svg" alt="notepad icon" >
+                    <h3 class="notesnotification">3</h3>
+                </div>
+                <div class="mynotes">
+                    <h2>my notes</h2> 
+                    <button class="close_note">x</button>
+                    <nav>
+                        <button class="create_note note_tab active" note="+" onclick="toggleActive(this)"><h3>+</h3></button>
+                        <button class="note_tab" note="watchlist" onclick="toggleActive(this)"><h3>watchlist</h3></button>
+                        <button class="note_tab" note="todolist" onclick="toggleActive(this)"><h3>to do list</h3></button>
+                        <button class="note_tab" note="datenight" onclick="toggleActive(this)"><h3>date night</h3></button>
+                    </nav>
+                    <div id="create_note" class="tab_content active">
+                        <input type="text" name="note_title" id="note_title" placeholder="title">
+                        <textarea name="note_content" id="note_content" placeholder="content"></textarea>
+                        <button class="submit">done</button>
+                    </div>
+                    <div id="watchlist" class="tab_content">
+                        <div class="topNote">
+                            <h2 class="note_title">watchlist</h2>
+                            <img src="images/delete_black.svg" alt="delete_note_icon" class="deleteNote_button" note="watchlist" onclick="deleteNote(this)">
+                            <img src="images/edit_white.svg" alt="edit_icon" class="edit_button" note="watchlist" onclick="editNote(this)">
+                        </div>
+                        <p class="note_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat mauris purus, sed maximus dui luctus nec. In tincidunt dolor erat, ac interdum turpis luctus quis. Nullam aliquam enim eu nunc rhoncus, id ornare nibh facilisis. In lobortis consectetur turpis eu egestas. In vitae cursus tellus. Nam in magna at nisl finibus imperdiet id ac est. Morbi in efficitur neque, sit amet tincidunt nulla. Curabitur rhoncus nisi sit amet neque eleifend aliquet. Nulla malesuada justo in finibus porttitor. Vivamus lacus nisl, faucibus id turpis id, accumsan lobortis libero. Integer gravida volutpat dui, ac viverra enim dictum vel. Quisque efficitur nibh dui, in luctus quam vehicula sed.</p>
+                    </div>
+                    <div id="todolist" class="tab_content">
+                        <div class="topNote">
+                            <h2 class="note_title">to do list</h2>
+                            <img src="images/delete_black.svg" alt="delete_note_icon" class="deleteNote_button" note="todolist" onclick="deleteNote(this)">
+                            <img src="images/edit_white.svg" alt="edit_icon" class="edit_button" note="todolist" onclick="editNote(this)">
+                        </div>
+                        <p class="note_content">Ut scelerisque nisl libero, nec blandit tellus consectetur sit amet. Fusce aliquet pretium ante id imperdiet. Integer imperdiet urna eros, ut interdum felis eleifend et. Duis suscipit metus vitae felis lobortis pretium. Suspendisse nisl diam, ornare in dignissim ut, ullamcorper nec elit. Nullam id sapien odio. Suspendisse bibendum urna enim, vitae convallis urna volutpat nec. Nullam vitae mi non dolor malesuada consectetur eu a ex. In ac velit ut quam pellentesque auctor sed a tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer nec augue vitae felis mattis mattis et ac nisi. Proin nunc nunc, lacinia a ullamcorper porta, euismod tristique metus. Donec ultricies lectus tellus, id pellentesque sem hendrerit vitae. Vivamus lacinia mollis nisi, ac blandit purus consequat at.</p>
+                    </div>
+                    <div id="datenight" class="tab_content">
+                        <div class="topNote">
+                            <h2 class="note_title">date night</h2>
+                            <img src="images/delete_black.svg" alt="delete_note_icon" class="deleteNote_button" note="datenight" onclick="deleteNote(this)">
+                            <img src="images/edit_white.svg" alt="edit_icon" class="edit_button" note="datenight" onclick="editNote(this)">
+                        </div>
+                        <p class="note_content">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </div>
+                </div>
+            </div>
+            <h1 class="name">petra</h1>
+            <div class="location"><img src="images/location_icon.svg" alt="location icon" class="location_icon"><h2>Jurong West</h2></div>
+            <h3 class="membership_serial_code">huMDLx9ZPeFfbDoPzGa9</h3>
+            <!-- list of tickets -->
+            <h2 class="heading">your tickets</h2>
+            <div class="ticket_display">
+                <div class="ticket">
+                    <button class="close_ticket">x</button>
+                    <h2 class="title">-<div class="bottom_aligner"></div></h2>
+                    <div><h2 class="ticketlocation">-</h2><h3 class="location_sub">location</h3></div>
+                    <h2 class="subtitle" id="theatre">theatre 3</h2>
+                    <h3 class="day">-</h3>
+                    <div class="cut_line"></div>
+                    <span>
+                        <div><h2 class="subtitle" id="time">-</h2>
+                            <h3 class="subtitle_sub">time</h3></div>
+                        <div><h2 class="subtitle" id="seat">-</h2><h3 class="subtitle_sub">seat</h3></div>
+                    </span>
+                    <img src="images/qr_code_black_36dp.svg" alt="">
+                </div>
+            </div>
+            <div class="comingsoon_display" id="yourtickets"> 
+            </div>
+            <!-- recent view movies -->
+            <h2 class="heading">recent view</h2>
+            <div class="onscreen_display cinemas" id="recentview">
+            </div>
+        </div>
+        <!-- home button navigation -->
+        <div class="home">
+            <div class="homemenu">
+                <a class="icon" href="./index.html"><img src="images/home_icon.svg" alt="home_icon"><h4>Home</h4></a>
+                <a class="icon" href="./cinemas.html"><img src="images/cinema_icon.svg" alt="cinema_icon"><h4>Movies</h4></button>
+                <a class="icon" href="./locateus.html"><img src="images/locateus_icon.svg" alt="locateus_icon"><h4>Locate Us</h4></button>
+                <a class="icon" href="./profile.html"><img src="images/profile_icon.svg" alt="profile_icon"><h4>Profile</h4></button>
+                <a class="icon"></a>
+            </div>
+            <button class="toggle_menu">
+                <img src="images/menucross_gradient.svg" alt="menucross_gradient">
+            </button>
+        </div>
+    </div>
+</body>
+</html>
