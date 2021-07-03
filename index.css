@@ -1,7 +1,7 @@
 @media (max-width: 768px) {
   :root {
     --header_width:100vw;
-    --header_height:60vh;
+    --header_height:65vh;
     --headerOverlay_padding: 0 5%;
     --nonHeaderDisplay_width:100vw;
     --onscreenDisplay_height:80vh;
@@ -201,6 +201,7 @@ header {
   object-fit: cover;
 }
 .card-display .card > img {
+  object-fit: contain;
   border-radius: var(--border_radius);
 }
 .card-display .card .overlay {
