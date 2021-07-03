@@ -1,7 +1,7 @@
 @media (max-width: 768px) {
   :root {
     --header_width:100vw;
-    --header_height:55vh;
+    --header_height:60vh;
     --headerOverlay_padding: 0 5%;
     --nonHeaderDisplay_width:100vw;
     --onscreenDisplay_height:80vh;
@@ -164,6 +164,7 @@ header {
 }
 .card-display .card .overlay .card_description {
   width: 90%;
+  max-height: 50%;
   margin-bottom: 15px;
   overflow-y: scroll;
   color: #eeeeee;
@@ -171,7 +172,6 @@ header {
 .card-display .card .overlay button {
   border-radius: 10px;
   width: 40%;
-  padding: 10px 5px;
   background-color: #e9ae2d;
   border: 1px solid #e9ae2d;
   text-transform: capitalize;
@@ -310,6 +310,7 @@ div.onscreen_display .onscreen_card .overlay h3.subtitle, div.onscreen_display .
 }
 div.onscreen_display .onscreen_card .overlay .card_description, div.onscreen_display .recentview_cards .overlay .card_description {
   width: 90%;
+  max-height: 50%;
   margin-bottom: 15px;
   overflow-y: scroll;
   color: #eeeeee;
@@ -317,7 +318,6 @@ div.onscreen_display .onscreen_card .overlay .card_description, div.onscreen_dis
 div.onscreen_display .onscreen_card .overlay button, div.onscreen_display .recentview_cards .overlay button {
   border-radius: 10px;
   width: 40%;
-  padding: 10px 5px;
   background-color: #e9ae2d;
   border: 1px solid #e9ae2d;
   text-transform: capitalize;
@@ -431,6 +431,7 @@ div.comingsoon_display .comingsoon_cards .overlay h3.subtitle, div.comingsoon_di
 }
 div.comingsoon_display .comingsoon_cards .overlay .card_description, div.comingsoon_display .tickets_cards .overlay .card_description {
   width: 90%;
+  max-height: 50%;
   margin-bottom: 15px;
   overflow-y: scroll;
   color: #eeeeee;
@@ -438,7 +439,6 @@ div.comingsoon_display .comingsoon_cards .overlay .card_description, div.comings
 div.comingsoon_display .comingsoon_cards .overlay button, div.comingsoon_display .tickets_cards .overlay button {
   border-radius: 10px;
   width: 40%;
-  padding: 10px 5px;
   background-color: #e9ae2d;
   border: 1px solid #e9ae2d;
   text-transform: capitalize;

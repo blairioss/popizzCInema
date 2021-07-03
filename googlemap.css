@@ -11,6 +11,8 @@
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
     position: inherit;
     z-index: inherit;
     background-color: transparent;
@@ -39,9 +41,6 @@ content {
     margin: 20px 0 0 20px;
 }
 div.profile {
-    position: absolute;
-    right: 5%;
-    top: 5%;
     width: fit-content;
     height: fit-content;
 }
