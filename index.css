@@ -164,7 +164,7 @@ header {
 }
 .card-display .card .overlay .card_description {
   width: 90%;
-  max-height: 50%;
+  max-height: 45%;
   margin-bottom: 15px;
   overflow-y: scroll;
   color: #eeeeee;
@@ -311,7 +311,7 @@ div.onscreen_display .onscreen_card .overlay h3.subtitle, div.onscreen_display .
 }
 div.onscreen_display .onscreen_card .overlay .card_description, div.onscreen_display .recentview_cards .overlay .card_description {
   width: 90%;
-  max-height: 50%;
+  max-height: 45%;
   margin-bottom: 15px;
   overflow-y: scroll;
   color: #eeeeee;
@@ -372,7 +372,7 @@ div.onscreen_display .onscreen_card.viewing .overlay button, div.onscreen_displa
   letter-spacing: 0.5px;
 }
 div.onscreen_display .onscreen_card.viewing .overlay .card_description, div.onscreen_display .recentview_cards.viewing .overlay .card_description {
-  max-height: 50%;
+  max-height: 45%;
   letter-spacing: 0.5px;
 }
 div.onscreen_display .onscreen_card:nth-of-type(odd) {
@@ -432,7 +432,7 @@ div.comingsoon_display .comingsoon_cards .overlay h3.subtitle, div.comingsoon_di
 }
 div.comingsoon_display .comingsoon_cards .overlay .card_description, div.comingsoon_display .tickets_cards .overlay .card_description {
   width: 90%;
-  max-height: 50%;
+  max-height: 45%;
   margin-bottom: 15px;
   overflow-y: scroll;
   color: #eeeeee;
