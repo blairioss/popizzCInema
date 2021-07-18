@@ -200,6 +200,9 @@ header {
   height: 100%;
   object-fit: cover;
 }
+.card-display .card button {
+  padding: 5px 0;
+}
 .card-display .card > img {
   object-fit: contain;
   border-radius: var(--border_radius);
