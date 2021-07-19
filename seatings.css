@@ -125,7 +125,16 @@ table tr:first-of-type {
 .price_container table button.checkout:hover {
     background-color: #e9ae2d;
 }
-
+.closedialog {
+    font-size: 15px;
+    font-weight: 600;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 header {
     position: inherit;
     height: 12vh;

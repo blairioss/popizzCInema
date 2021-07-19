@@ -1,4 +1,3 @@
-
 var ticket_quantity = 0
 var selectedseats = new Array;
 // ticket price updating of total price
@@ -46,6 +45,9 @@ $("button.quantity_plus").click(() => {
         changeTotalPrice(ticket_quantity);
     }
 })
+function closedialog() {
+    document.querySelector("#errormessage").removeAttribute("open")
+}
 $(function() {
     // save ticket onsubmit
     function fetchMovieData(movieid) {
@@ -55,6 +57,26 @@ $(function() {
             const {title} = data
             document.querySelector("td#moviename").innerText = title
         }).catch(err => console.log(err))
+    }
+    function cacheCart(id,selectedseats) {
+        // boughttickets = [{},{}]}
+        let date = $("#date").text()
+        let time = $("div.movietime.alive").text()
+        let location = $("#movielocation").val()
+        let boughttickets = localStorage["boughttickets"]
+        let boughtticketlist = new Array;
+        const ticket = {id,date,time,selectedseats,location}
+        if (boughttickets == undefined) {
+            boughtticketlist.push("0")
+            boughtticketlist.push(ticket)
+        }
+        else {
+            boughtticketlist = JSON.parse(boughttickets)
+            if (!boughtticketlist.includes(ticket)) {
+                boughtticketlist.push(ticket)
+            }
+        }
+        sessionStorage["cacheticket"] = JSON.stringify(boughtticketlist)
     }
     function saveticket(id,selectedseats) {
         // boughttickets = [{},{}]}
@@ -76,8 +98,30 @@ $(function() {
         }
         localStorage["boughttickets"] = JSON.stringify(boughtticketlist)
     }
+    
     const movieid = window.location.search.substring(1).replace("movieid=","")
     fetchMovieData(movieid)
-    $("button.checkout").click(() => saveticket(movieid,selectedseats))
+    $("button.checkout").click((e) => {
+        if (selectedseats.length == 0 || movieid == "") {
+            e.preventDefault()
+            let texttoadd = ""
+            if (selectedseats.length == 0) {
+                texttoadd += "Please select a seat"
+            }
+            if (movieid == "") {
+                if (texttoadd !== "") {
+                    texttoadd += "<br>Please select a movie"
+                }
+                else {
+                    texttoadd += "Please select a movie"
+                }
+            }
+            texttoadd += "<button class='closedialog' onclick='closedialog()'>X</button>"
+            document.querySelector("#errormessage").innerHTML = texttoadd
+            document.querySelector("#errormessage").setAttribute("open",true)
+        }
+        else {
+           saveticket(movieid,selectedseats) 
+        }
+    })
 }) 
-

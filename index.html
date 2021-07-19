@@ -14,6 +14,7 @@
     <link rel="icon" href="images/Popizz_sliced.svg" type="image/svg">
     <script src="./base.js"></script>
     <script src="./fetchData.js"></script>
+    <script src="./carousellScroll.js"></script>
 </head>
 <body>
     <div class="container">
@@ -29,7 +30,7 @@
             <div class="homemenu">
                 <a class="icon" href="./index.html"><img src="images/home_icon.svg" alt="home_icon"><h4>Home</h4></a>
                 <a class="icon" href="./cinemas.html"><img src="images/cinema_icon.svg" alt="cinema_icon"><h4>Movies</h4></button>
-                
+                <!-- <a class="icon" href="./locateus.html"><img src="images/locateus_icon.svg" alt="locateus_icon"><h4>Locate Us</h4></button> -->
                 <a class="icon" href="./profile.html"><img src="images/profile_icon.svg" alt="profile_icon"><h4>Profile</h4></button>
                 <a class="icon"></a>
             </div>
@@ -39,23 +40,21 @@
         </div>
         <!-- header card carousell for popular movies -->
         <div class="top_container">
-            <div class="card-display" id="headercard"></div>
+            <div class="card-display hidescroll" id="headercard"></div>
             <div class="carousel_indicator">
-                <!-- <input type="range" min="1" max="5" value="0" disabled> -->
-                <span class="carousel_outline">
-                    <img src="images/Ellipse_grey.svg" alt="">
-                    <img src="images/Ellipse_grey.svg" alt="">
-                    <img src="images/Ellipse_grey.svg" alt="">
-                    <img src="images/Ellipse_grey.svg" alt="">
-                    <img src="images/Ellipse_grey.svg" alt="">
-                </span>
+                <div class="singleline active"></div>
+                <div class="singleline"></div>
+                <div class="singleline"></div>
+                <div class="singleline"></div>
+                <div class="singleline"></div>
+                <div class="singleline"></div>
             </div>
         </div>
         <div class="bottom_container">
             <h2 class="pageheading">On Screens</h2>
-            <div class="onscreen_display"></div>
+            <div class="onscreen_display hidescroll"></div>
             <h2 class="pageheading">Coming Soon</h2>
-            <div class="comingsoon_display"></div>
+            <div class="comingsoon_display hidescroll"></div>
         </div>
       
         <footer><h4>popizz®</h4></footer>
