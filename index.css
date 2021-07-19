@@ -34,8 +34,11 @@
   :root .movietime {
     font-size: 2.5rem;
   }
-  :root .date_bar, :root .time_bar {
-    min-width: 70px;
+  :root .time_bar {
+    min-width: 80px;
+  }
+  :root .date_bar {
+    min-width: 85px;
   }
 }
 @media screen and (min-width: 1366px) {
@@ -213,23 +216,23 @@ header {
 
 div.carousel_indicator {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 5px auto;
-  width: 40%;
+  width: 50%;
   height: 25px;
 }
-div.carousel_indicator span.carousel_outline {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: fit-content;
-  top: 25%;
-  justify-content: space-between;
+div.carousel_indicator .singleline {
+  width: 25%;
+  height: 40%;
+  margin-right: 10px;
+  background-color: #575757b7;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
 }
-div.carousel_indicator span.carousel_outline img {
-  width: 15px;
-  height: 15px;
-  opacity: 0.6;
-  border-radius: 50%;
+div.carousel_indicator .singleline.active {
+  background-color: #e9ae2d;
 }
 
 .datetime-display {
