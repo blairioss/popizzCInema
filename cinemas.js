@@ -72,7 +72,7 @@ $(function() {
                 let month = getMonth(days.getMonth())
                 let day = getDay(days.getDay())
                 let d = days.getDate()
-                datecard += `<div onclick='toggleActiveDate(event)' class="moviedate ${(x==0&&once)?'alive':''}"><span>${day}</span><span id="date">${d} ${month}</span></div>`
+                datecard += `<div onclick='toggleActiveDate(event)' class="moviedate ${(x==0&&once)?'alive':''}"><h3>${day}</h3><h3 id="date">${d} ${month}</h3></div>`
             }
             datecard += "</div>"
             document.querySelector(".datetime-display#datebar").innerHTML += datecard
@@ -84,9 +84,29 @@ $(function() {
         $("div.movietime").each((i,e) => {
             $(e).click((event) => toggleActiveTime(event))
         });
-        let startingpos = $("div.moviedate.alive").position().left + 2;
+        let startingpos = $("div.moviedate.alive").position().left*1.00;
         $(".date_bar").css("left", startingpos);
-        let timestart_pos = $("div.movietime.alive").position().left + 2;
+        let timestart_pos = $("div.movietime.alive").position().left*1.00;
         $(".time_bar").css("left", timestart_pos);
+    }
+    // toggle sessionStorage date time in seatings.html
+    if (window.location.pathname.includes("seatings.html") && window.location.search.includes("editcart=true")) {
+        const movieid = window.location.search.split("&")[0].replace("?movieid=","")
+        const data = JSON.parse(sessionStorage.cart)
+        data.map(movie => {
+            if (movie.id === movieid) {
+                const {date,time} = movie
+                $("div.moviedate.alive").removeClass("alive")
+                $("div.movietime.alive").removeClass("alive")
+                const sDate = $(`h3#date:contains(${date})`)
+                const sTime = $(`div.movietime:contains(${time})`)
+                const sDatePos = sDate.position().left*1.00;
+                const sTimePos = sTime.position().left*1.00;
+                sDate.parent().toggleClass("alive")
+                sTime.toggleClass("alive")
+                $(".date_bar").animate({left:sDatePos},200)
+                $(".time_bar").animate({left:sTimePos},200)
+            }
+        })
     }
 })

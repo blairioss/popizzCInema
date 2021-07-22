@@ -1,3 +1,4 @@
+
 var ticket_quantity = 0
 var selectedseats = new Array;
 // ticket price updating of total price
@@ -33,74 +34,93 @@ function changeSeat(ele) {
     }
     changeTotalPrice(ticket_quantity)
 }
-$("button.quantity_minus").click(() => {
-    if (ticket_quantity >= 1) {
-        ticket_quantity -= 1;
-        changeTotalPrice(ticket_quantity);
-    }
-})
-$("button.quantity_plus").click(() => {
-    if (ticket_quantity <= 10) {
-        ticket_quantity += 1;
-        changeTotalPrice(ticket_quantity);
-    }
-})
 function closedialog() {
     document.querySelector("#errormessage").removeAttribute("open")
 }
 $(function() {
+    const url = window.location.search.substring(1).split("&")
+    const movieid = url[0].replace("movieid=","")
+    const editcart = url[1].replace("editcart=","")
     // save ticket onsubmit
     function fetchMovieData(movieid) {
-        fetch(`https://api.themoviedb.org/3/movie/${movieid}?api_key=d91191ac19f5d37cd9975eb87666a286&language=en-US`,{headers: {
+            fetch(`https://api.themoviedb.org/3/movie/${movieid}?api_key=d91191ac19f5d37cd9975eb87666a286&language=en-US`,{headers: {
     Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOTExOTFhYzE5ZjVkMzdjZDk5NzVlYjg3NjY2YTI4NiIsInN1YiI6IjYwZGE4OTNmMGI3MzE2MDA3ZDFkOTExNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MQ1jAAXQ7eXStlY8kSTMdGp1Q26J2U8y9yr2rqCl1-I",
     "Content-Type": "application/json;charset=utf-8"}}).then(res =>res.json()).then(data => {
             const {title} = data
             document.querySelector("td#moviename").innerText = title
         }).catch(err => console.log(err))
     }
-    function cacheCart(id,selectedseats) {
-        // boughttickets = [{},{}]}
-        let date = $("#date").text()
-        let time = $("div.movietime.alive").text()
-        let location = $("#movielocation").val()
-        let boughttickets = localStorage["boughttickets"]
-        let boughtticketlist = new Array;
-        const ticket = {id,date,time,selectedseats,location}
-        if (boughttickets == undefined) {
-            boughtticketlist.push("0")
-            boughtticketlist.push(ticket)
-        }
-        else {
-            boughtticketlist = JSON.parse(boughttickets)
-            if (!boughtticketlist.includes(ticket)) {
-                boughtticketlist.push(ticket)
+    function loadFromSS(movieid) {
+        const data = JSON.parse(sessionStorage.cart)
+        data.map(movie => {
+            if (movie.id === movieid) {
+                const {title,date,time,selectedseats:ssSeatsArray,location,price} = movie
+                // change title
+                document.querySelector("td#moviename").innerText = title
+                // load ticket price and qty
+                ticket_quantity = price/7
+                changeTotalPrice(ticket_quantity)
+                // load selected seats
+                selectedseats = ssSeatsArray
+                selectedseats.map(seat => {
+                    const element = $(`div.seat[seatno='${seat}']`)
+                    element.addClass("selected_seat")
+                })
+                seats = selectedseats.toString()
+                $("td#seatselected").text(seats)
+                // load movie location
+                $("option[name='movielocation']").removeAttr("selected")
+                $(`option[value='${location}']`).attr("selected",true)
             }
+        })
+    }
+    function addToCart(id,selectedseats) {
+        // boughttickets = [{},{}]}
+        const date = $("#date").text()
+        const time = $("div.movietime.alive").text()
+        const location = $("#movielocation").val()
+        const price = $(".total_price").text()
+        const title = $("#moviename").text()
+        let boughttickets = sessionStorage["cart"]
+        let boughtticketlist = new Array;
+        const ticket = {id,title,date,time,selectedseats,location,price}
+        if (boughttickets !== undefined) {
+            // remove identical movieid in sessionStorage
+            boughtticketlist = JSON.parse(boughttickets)
+            boughtticketlist = boughtticketlist.filter(ele => {
+                return (ele.id !== id)
+            })
         }
-        sessionStorage["cacheticket"] = JSON.stringify(boughtticketlist)
+        boughtticketlist.push(ticket)
+        sessionStorage["cart"] = JSON.stringify(boughtticketlist)
     }
     function saveticket(id,selectedseats) {
         // boughttickets = [{},{}]}
-        let date = $("#date").text()
+        let date = $("#date.alive").text()
         let time = $("div.movietime.alive").text()
         let location = $("#movielocation").val()
         let boughttickets = localStorage["boughttickets"]
         let boughtticketlist = new Array;
         const ticket = {id,date,time,selectedseats,location}
         if (boughttickets == undefined) {
-            boughtticketlist.push("0")
+            
             boughtticketlist.push(ticket)
         }
         else {
             boughtticketlist = JSON.parse(boughttickets)
-            if (!boughtticketlist.includes(ticket)) {
-                boughtticketlist.push(ticket)
-            }
+            boughtticketlist = boughtticketlist.filter(ele => {
+                return (ele.id !== id && ele.date !== date && ele.time !== time && ele.location !== location)
+            })
+            boughtticketlist.push(ticket)
         }
         localStorage["boughttickets"] = JSON.stringify(boughtticketlist)
     }
-    
-    const movieid = window.location.search.substring(1).replace("movieid=","")
-    fetchMovieData(movieid)
+    if (editcart == "true") {
+        loadFromSS(movieid)
+    }
+    else {
+        fetchMovieData(movieid)
+    }
     $("button.checkout").click((e) => {
         if (selectedseats.length == 0 || movieid == "") {
             e.preventDefault()
@@ -123,5 +143,6 @@ $(function() {
         else {
            saveticket(movieid,selectedseats) 
         }
+        addToCart(movieid,selectedseats)
     })
 }) 
